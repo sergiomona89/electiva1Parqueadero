@@ -1,0 +1,15 @@
+<p>registro-ingresos works!</p>
+<table>
+    <tr>
+      <th>Numero</th>
+      <th>Cantidad</th>
+      <th>Disponibles</th>
+      <th>Tipo</th>
+    </tr>
+    <tr *ngFor="let item of zonasRegistradas">
+      <td>{{item.Numero}}</td>
+      <td>{{item.Cantidad}}</td>
+      <td>{{item.Disponibles}}</td>
+      <td>{{item.Tipo}}</td>
+    </tr>
+</table>
