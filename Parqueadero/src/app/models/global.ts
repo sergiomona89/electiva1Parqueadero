@@ -7,7 +7,13 @@ import { Zonas } from "./zona.model";
 export class GlobalController {
     constructor () {}
 
-    public vehiculosReg: Vehiculos[] = [];
+    public vehiculosReg: Vehiculos[] = [
+        {
+            Placa: 'PIW72D',
+            Propietario: 'Diego M',
+            Tipo: TipoVehiculo.Moto
+        }
+    ];
     public zonasReg: Zonas[] = [
         {
             Numero: 1,
