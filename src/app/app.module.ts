@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 import { RegistroIngresosComponent } from './componentes/registro-ingresos/registro-ingresos.component';
 import { RegistroVehiculosComponent } from './componentes/registro-vehiculos/registro-vehiculos.component';
 
@@ -11,7 +12,8 @@ import { RegistroVehiculosComponent } from './componentes/registro-vehiculos/reg
   declarations: [
     AppComponent,
     RegistroIngresosComponent,
-    RegistroVehiculosComponent
+    RegistroVehiculosComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
