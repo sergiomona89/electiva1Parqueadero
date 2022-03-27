@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroIngresosComponent } from './componentes/registro-ingresos/registro-ingresos.component';
-import { RegistroVehiculosComponent } from './registro-vehiculos/registro-vehiculos.component';
+import { RegistroVehiculosComponent } from './componentes/registro-vehiculos/registro-vehiculos.component';
 
 @NgModule({
   declarations: [
