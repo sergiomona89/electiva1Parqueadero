@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { RegistroIngresosComponent } from './componentes/registro-ingresos/registro-ingresos.component';
 import { RegistroVehiculosComponent } from './componentes/registro-vehiculos/registro-vehiculos.component';
+import { RegistrosZonasComponent } from './componentes/registros-zonas/registros-zonas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroIngresosComponent,
     RegistroVehiculosComponent,
-    MenuComponent
+    MenuComponent,
+    RegistrosZonasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,64 @@
+<div style="display: flex; justify-content: center;">
+    <form style="width: 30%;" (ngSubmit)="cargarZona(formReg)" #formReg="ngForm">
+        <div class="form-group">
+            <label>Numero</label>
+            <input type="number" class="form-control" name="Numero" placeholder="Ingrese Numero de zona"
+                [(ngModel)]="zona.Numero" #numero="ngModel" (click)="successrefresh()" required min="1">
+
+            <span *ngIf="numero.invalid && numero.touched">
+                <div class="alert alert-danger" *ngIf="numero.errors?.['required'] || numero.errors?.['min']">
+                    Debe ingresar el numero de la zona.
+                </div>
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Numero de puestos</label>
+            <input type="number" class="form-control" name="Cantidad" placeholder="Ingrese numero de puestos"
+                [(ngModel)]="zona.Cantidad" #cantidad="ngModel" (click)="successrefresh()" required min="1">
+
+            <span *ngIf="cantidad.invalid && cantidad.touched">
+                <div class="alert alert-danger" *ngIf="cantidad.errors?.['required'] ||  cantidad.errors?.['min']">
+                    Debe ingresar el numero de puestos de la zona.
+                </div>
+            </span>
+        </div>
+        <div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="carro" name="tipoR" [value]="auxTipoVehiculo.Carro" [(ngModel)]="zona.Tipo" [ngModelOptions]="{standalone: true}">
+              <label class="form-check-label" for="carro">Automovil</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="moto" name="tipoR" [value]="auxTipoVehiculo.Moto" [(ngModel)]="zona.Tipo">
+              <label class="form-check-label" for="moto">Motocicleta</label>
+            </div>
+        </div>
+
+        <div class="alert alert-success" role="alert" *ngIf="successFull">
+            Registro satisfactorio
+        </div>
+        <div style="display: flex; justify-content: space-around; margin-top: 8px;">
+            <button type="button" class="btn btn-secondary" (click)="clear(formReg)">Cancelar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!formReg.form.valid">Aceptar</button>
+        </div>
+    </form>
+</div>
+
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <div style="width: 50%; border: 1px solid; border-radius: 10px;">
+        <h5 style="text-align: center;">Zonas</h5>
+        <table class="table table-striped">
+            <tr>
+                <th>Numero</th>
+                <th>Cantidad</th>
+                <th>Disponibles</th>
+                <th>Tipo</th>
+            </tr>
+            <tr *ngFor="let item of variablesGlobales.zonasReg">
+                <td>{{item.Numero}}</td>
+                <td>{{item.Cantidad}}</td>
+                <td>{{item.Disponibles}}</td>
+                <td>{{auxTipoVehiculo[item.Tipo]}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

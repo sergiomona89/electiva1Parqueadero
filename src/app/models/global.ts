@@ -13,11 +13,6 @@ export class GlobalController {
             Placa: 'ABC123',
             Propietario: 'Diego M',
             Tipo: TipoVehiculo.Carro
-        },
-        {
-            Placa: 'PIW72D',
-            Propietario: 'Diego M',
-            Tipo: TipoVehiculo.Moto
         }
     ];
     public zonasReg: Zonas[] = [
