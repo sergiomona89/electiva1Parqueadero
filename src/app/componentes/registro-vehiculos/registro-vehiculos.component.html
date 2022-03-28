@@ -1,1 +1,59 @@
-<p>registro-vehiculos works!</p>
+<div style="display: flex; justify-content: center;">
+  <form style="width: 30%;" (ngSubmit)="cargarVehiculo(formReg)" #formReg="ngForm">
+    <div class="form-group">
+      <label>Placa</label>
+      <input type="text" class="form-control" name="Placa" (click)="successrefresh()" placeholder="Ingrese Placa"
+        [(ngModel)]="vehiculo.Placa" #placa="ngModel" required minlength="6" maxlength="6">
+      <span *ngIf="placa.invalid && placa.touched">
+        <div class="alert alert-danger" *ngIf="placa.errors?.['required']">
+          Debe ingresar la placa del vehiculo.
+        </div>
+        <div class="alert alert-danger" *ngIf="placa.errors?.['minlength'] || placa.errors?.['maxlength']">
+          Debe contener 6 caracteres.
+        </div>
+      </span>
+      <label>Propietario</label>
+      <input type="text" class="form-control" name="Propietario" placeholder="Ingrese Propietario"
+        [(ngModel)]="vehiculo.Propietario" #propietario="ngModel" required minlength="1" maxlength="50">
+      <span *ngIf="propietario.invalid && propietario.touched">
+        <div class="alert alert-danger" *ngIf="propietario.errors?.['required']">
+          Debe ingresar la propietario del vehiculo.
+        </div>
+      </span>
+      <div>
+        <label>Tipo de vehiculo</label>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="automovil" name="tipoR" [value]="tipoVehiculo.Carro"
+            [(ngModel)]="vehiculo.Tipo" [ngModelOptions]="{standalone: true}">
+          <label class="form-check-label" for="automovil">Automovil</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="motocicleta" name="tipoR" [value]="tipoVehiculo.Moto"
+            [(ngModel)]="vehiculo.Tipo">
+          <label class="form-check-label" for="motocicleta">Motocicleta</label>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-around; margin-top: 8px;">
+        <button type="button" class="btn btn-secondary" (click)="clear(formReg)">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!formReg.form.valid">Aceptar</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 50px; ">
+  <div style="margin-left: 20px; width: 50%; border: 1px solid; border-radius: 10px;">
+    <h5 style="text-align: center;">Registros de Vehiculos</h5>
+    <table class="table table-striped">
+      <tr>
+        <th>Placa</th>
+        <th>Propietario</th>
+        <th>Tipo de vehiculo</th>
+      </tr>
+      <tr *ngFor="let item of variablesGlobales.vehiculosReg">
+        <td>{{item.Placa}}</td>
+        <td>{{item.Propietario}}</td>
+        <td>{{item.Tipo != null ? tipoVehiculo[item.Tipo] : item.Tipo }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
