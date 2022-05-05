@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Placa</label>
       <input type="text" class="form-control" name="Placa" (click)="successrefresh()" placeholder="Ingrese Placa"
-        [(ngModel)]="vehiculo.Placa" #placa="ngModel" required minlength="6" maxlength="6">
+        [(ngModel)]="vehiculo.placa" #placa="ngModel" required minlength="6" maxlength="6">
       <span *ngIf="placa.invalid && placa.touched">
         <div class="alert alert-danger" *ngIf="placa.errors?.['required']">
           Debe ingresar la placa del vehiculo.
@@ -14,7 +14,7 @@
       </span>
       <label>Propietario</label>
       <input type="text" class="form-control" name="Propietario" placeholder="Ingrese Propietario"
-        [(ngModel)]="vehiculo.Propietario" #propietario="ngModel" required minlength="1" maxlength="50">
+        [(ngModel)]="vehiculo.propietario" #propietario="ngModel" required minlength="1" maxlength="50">
       <span *ngIf="propietario.invalid && propietario.touched">
         <div class="alert alert-danger" *ngIf="propietario.errors?.['required']">
           Debe ingresar la propietario del vehiculo.
@@ -24,12 +24,12 @@
         <label>Tipo de vehiculo</label>
         <div class="form-check">
           <input type="radio" class="form-check-input" id="automovil" name="tipoR" [value]="tipoVehiculo.Carro"
-            [(ngModel)]="vehiculo.Tipo" [ngModelOptions]="{standalone: true}">
+            [(ngModel)]="vehiculo.tipo" [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="automovil">Automovil</label>
         </div>
         <div class="form-check">
           <input type="radio" class="form-check-input" id="motocicleta" name="tipoR" [value]="tipoVehiculo.Moto"
-            [(ngModel)]="vehiculo.Tipo">
+            [(ngModel)]="vehiculo.tipo">
           <label class="form-check-label" for="motocicleta">Motocicleta</label>
         </div>
       </div>
@@ -49,10 +49,10 @@
         <th>Propietario</th>
         <th>Tipo de vehiculo</th>
       </tr>
-      <tr *ngFor="let item of variablesGlobales.vehiculosReg">
-        <td>{{item.Placa}}</td>
-        <td>{{item.Propietario}}</td>
-        <td>{{item.Tipo != null ? tipoVehiculo[item.Tipo] : item.Tipo }}</td>
+      <tr *ngFor="let item of listVehiculos">
+        <td>{{item.placa}}</td>
+        <td>{{item.propietario}}</td>
+        <td>{{item.tipo != null ? tipoVehiculo[item.tipo] : item.tipo }}</td>
       </tr>
     </table>
   </div>

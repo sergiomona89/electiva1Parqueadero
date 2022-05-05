@@ -10,41 +10,41 @@ export class GlobalController {
 
     public vehiculosReg: Vehiculos[] = [
         {
-            Placa: 'ABC123',
-            Propietario: 'Diego M',
-            Tipo: TipoVehiculo.Carro
+            placa: 'ABC123',
+            propietario: 'Diego M',
+            tipo: TipoVehiculo.Carro
         }
     ];
     public zonasReg: Zonas[] = [
         {
-            Numero: 1,
-            Cantidad: 20,
-            Disponibles: 19,
-            Tipo: TipoVehiculo.Carro
+            numero: 1,
+            cantidad: 20,
+            disponibles: 19,
+            tipo: TipoVehiculo.Carro
         },
         {
-            Numero: 2,
-            Cantidad: 20,
-            Disponibles: 20,
-            Tipo: TipoVehiculo.Moto
+            numero: 2,
+            cantidad: 20,
+            disponibles: 20,
+            tipo: TipoVehiculo.Moto
         },
         {
-            Numero: 3,
-            Cantidad: 15,
-            Disponibles: 15,
-            Tipo: TipoVehiculo.Moto
+            numero: 3,
+            cantidad: 15,
+            disponibles: 15,
+            tipo: TipoVehiculo.Moto
         },
         {
-            Numero: 4,
-            Cantidad: 15,
-            Disponibles: 15,
-            Tipo: TipoVehiculo.Carro
+            numero: 4,
+            cantidad: 15,
+            disponibles: 15,
+            tipo: TipoVehiculo.Carro
         }
     ];
     public resgistros: Vehiculo_Zona[] = [
         {
-            Placa: 'ABC123',
-            Zona: 1
+            placa: 'ABC123',
+            zona: 1
         }
     ];
 }

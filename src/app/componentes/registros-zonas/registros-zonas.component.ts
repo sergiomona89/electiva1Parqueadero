@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { GlobalController } from 'src/app/models/global';
 import { TipoVehiculo } from 'src/app/models/tipoVehiculos.enum';
 import { Zonas } from 'src/app/models/zona.model';
+import { ZonasService } from 'src/app/services/zonas.service';
 
 @Component({
   selector: 'app-registros-zonas',
@@ -13,19 +14,23 @@ export class RegistrosZonasComponent implements OnInit {
   public zona: Zonas = new Zonas();
   public successFull: boolean = false;
   public auxTipoVehiculo = TipoVehiculo;
+  public listZonas: Zonas[] = [];
 
-  constructor(public variablesGlobales: GlobalController) { }
+  constructor(public variablesGlobales: GlobalController, private zonasService: ZonasService) { }
 
   ngOnInit(): void {
+    this.zonasService.get().subscribe(list => {
+      this.listZonas = list;
+    });
   }
 
   cargarZona(e: NgForm) {
-    if(this.variablesGlobales.zonasReg.some(item => item.Numero == this.zona.Numero)) {
+    if(this.variablesGlobales.zonasReg.some(item => item.numero == this.zona.numero)) {
       alert("El numero de zona ya existe");
       return;
     }
 
-    this.zona.Disponibles = this.zona.Cantidad;
+    this.zona.disponibles = this.zona.cantidad;
     this.variablesGlobales.zonasReg.push(this.zona);
 
     this.clear(e);
@@ -35,7 +40,7 @@ export class RegistrosZonasComponent implements OnInit {
   clear(e: NgForm) {
     this.zona = new Zonas();
     e.reset();
-    this.zona.Tipo = TipoVehiculo.Carro;
+    this.zona.tipo = TipoVehiculo.Carro;
     this.successFull = false;
   }
 

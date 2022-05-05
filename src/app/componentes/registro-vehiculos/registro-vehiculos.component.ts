@@ -4,6 +4,7 @@ import { TipoVehiculo } from './../../models/tipoVehiculos.enum';
 import { GlobalController } from './../../models/global';
 
 import { NgForm } from '@angular/forms';
+import { VehiculosService } from 'src/app/services/vehiculos.service';
 
 @Component({
   selector: 'app-registro-vehiculos',
@@ -15,23 +16,27 @@ export class RegistroVehiculosComponent implements OnInit {
   public vehiculo: Vehiculos = new Vehiculos();
   public tipoVehiculo = TipoVehiculo;
   public successFull: boolean = false;
+  public listVehiculos: Vehiculos[] = [];
 
-
-  constructor(public variablesGlobales: GlobalController) { }
+  constructor(private vehiculosService: VehiculosService) { }
 
   ngOnInit(): void {
+    this.vehiculosService.get().subscribe(list => {
+      this.listVehiculos = list;
+    });
   }
 
   cargarVehiculo(e: NgForm) {
-    let idx = this.variablesGlobales.vehiculosReg.findIndex(item => item.Placa.toUpperCase() == this.vehiculo.Placa.toUpperCase());
+    let idx = this.listVehiculos.findIndex(item => item.placa.toUpperCase() == this.vehiculo.placa.toUpperCase());
 
     if(idx >= 0) {
       alert("El vehiculo ya está registrado.");
       return;
     }
     
-    this.vehiculo.Placa = this.vehiculo.Placa.toUpperCase();
-    this.variablesGlobales.vehiculosReg.push(this.vehiculo);
+    this.vehiculo.placa = this.vehiculo.placa.toUpperCase();
+    this.listVehiculos.push(this.vehiculo);
+    this.vehiculosService.nuevoVehiculo(this.vehiculo).subscribe(result => {});
     this.clear(e);
     this.successFull = true;
   }
@@ -40,7 +45,7 @@ export class RegistroVehiculosComponent implements OnInit {
     this.vehiculo = new Vehiculos();
     e.reset();
     this.successFull = false;
-    this.vehiculo.Tipo = this.tipoVehiculo.Carro;
+    this.vehiculo.tipo = this.tipoVehiculo.Carro;
 
   }
 

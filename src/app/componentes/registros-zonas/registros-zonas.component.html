@@ -3,7 +3,7 @@
         <div class="form-group">
             <label>Numero</label>
             <input type="number" class="form-control" name="Numero" placeholder="Ingrese Numero de zona"
-                [(ngModel)]="zona.Numero" #numero="ngModel" (click)="successrefresh()" required min="1">
+                [(ngModel)]="zona.numero" #numero="ngModel" (click)="successrefresh()" required min="1">
 
             <span *ngIf="numero.invalid && numero.touched">
                 <div class="alert alert-danger" *ngIf="numero.errors?.['required'] || numero.errors?.['min']">
@@ -14,7 +14,7 @@
         <div class="form-group">
             <label>Numero de puestos</label>
             <input type="number" class="form-control" name="Cantidad" placeholder="Ingrese numero de puestos"
-                [(ngModel)]="zona.Cantidad" #cantidad="ngModel" (click)="successrefresh()" required min="1">
+                [(ngModel)]="zona.cantidad" #cantidad="ngModel" (click)="successrefresh()" required min="1">
 
             <span *ngIf="cantidad.invalid && cantidad.touched">
                 <div class="alert alert-danger" *ngIf="cantidad.errors?.['required'] ||  cantidad.errors?.['min']">
@@ -24,11 +24,11 @@
         </div>
         <div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="carro" name="tipoR" [value]="auxTipoVehiculo.Carro" [(ngModel)]="zona.Tipo" [ngModelOptions]="{standalone: true}">
+              <input type="radio" class="form-check-input" id="carro" name="tipoR" [value]="auxTipoVehiculo.Carro" [(ngModel)]="zona.tipo" [ngModelOptions]="{standalone: true}">
               <label class="form-check-label" for="carro">Automovil</label>
             </div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="moto" name="tipoR" [value]="auxTipoVehiculo.Moto" [(ngModel)]="zona.Tipo">
+              <input type="radio" class="form-check-input" id="moto" name="tipoR" [value]="auxTipoVehiculo.Moto" [(ngModel)]="zona.tipo">
               <label class="form-check-label" for="moto">Motocicleta</label>
             </div>
         </div>
@@ -54,10 +54,10 @@
                 <th>Tipo</th>
             </tr>
             <tr *ngFor="let item of variablesGlobales.zonasReg">
-                <td>{{item.Numero}}</td>
-                <td>{{item.Cantidad}}</td>
-                <td>{{item.Disponibles}}</td>
-                <td>{{auxTipoVehiculo[item.Tipo]}}</td>
+                <td>{{item.numero}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.disponibles}}</td>
+                <td>{{auxTipoVehiculo[item.tipo]}}</td>
             </tr>
         </table>
     </div>

@@ -2,9 +2,9 @@ import { TipoVehiculo } from "./tipoVehiculos.enum";
 
 export class Zonas {
     constructor(
-        public Numero: number = 0,
-        public Cantidad: number = 0,
-        public Disponibles: number = 0,
-        public Tipo: TipoVehiculo = TipoVehiculo.Carro
+        public numero: number = 0,
+        public cantidad: number = 0,
+        public disponibles: number = 0,
+        public tipo: TipoVehiculo = TipoVehiculo.Carro
     ) {}
 }

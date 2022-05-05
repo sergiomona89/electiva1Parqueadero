@@ -1,6 +1,6 @@
 export class Vehiculo_Zona {
     constructor (
-        public Placa: string = '',
-        public Zona: number = 0
+        public placa: string = '',
+        public zona: number = 0
     ){}
 }
