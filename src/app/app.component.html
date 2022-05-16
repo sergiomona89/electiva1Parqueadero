@@ -1,5 +1,5 @@
 <div style="margin: 8px;">
-    <app-menu></app-menu>
+    <app-menu *ngIf="global.usuario.id > 0"></app-menu>
 </div>
 <div>
     <router-outlet></router-outlet>

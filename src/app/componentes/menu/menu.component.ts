@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuarios } from 'src/app/models/usuarios';
+import { VariablesGlobalesService } from 'src/app/variables-globales.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public global: VariablesGlobalesService) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +22,9 @@ export class MenuComponent implements OnInit {
     else{
       return 'nav-link';
     }
+  }
+
+  linkoutlogin() {
+    this.router.navigate(['']);
   }
 }

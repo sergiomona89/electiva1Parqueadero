@@ -1,0 +1,38 @@
+<div class="body">
+
+    <div class="login">
+        <img src="./assets/img/login.jpg" width="30%">
+        <h1>Registros</h1>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div style="display: flex; flex-direction: row">
+            <div class="form-group">
+                <label>Cedula</label>
+                <input type="text" class="form-control" formControlName="cedula" placeholder="Cedula" required="Campo obligatorio">
+            </div>
+            <div class="form-group" style="margin-left: 8px;">
+                <label>Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" required="Campo obligatorio">
+            </div>
+            </div>
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="email" class="form-control" formControlName="correo" placeholder="Correo" required="Campo obligatorio">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" class="form-control" formControlName="Usuario" placeholder="Usuario" required="Campo obligatorio">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-control" formControlName="contrasena" placeholder="Nueva Contraseña" required="Campo obligatorio">
+                </div>
+            </div>
+            <div style="justify-content: center; margin-top: 8px; display: flex;">
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>

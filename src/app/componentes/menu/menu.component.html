@@ -1,11 +1,20 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a [ngClass]="linkActive('registrovehiculos')" aria-current="page" routerLink="registrovehiculos">Registro vehiculos</a>
-    </li>
-    <li class="nav-item">
-        <a [ngClass]="linkActive('registroszonas')" routerLink="registroszonas">Registros Zonas</a>
-    </li>
-    <li class="nav-item">
-        <a [ngClass]="linkActive('ingresosysalidas')" routerLink="ingresosysalidas">Ingresos y Salidas</a>
-    </li>
-</ul>
+<div style="display: flex;">
+    <ul class="nav nav-tabs" style="width: calc(100% - 82px);">
+        <li class="nav-item">
+            <a [ngClass]="linkActive('registrovehiculos')" aria-current="page" routerLink="registrovehiculos">Registro vehiculos</a>
+        </li>
+        <li class="nav-item">
+            <a [ngClass]="linkActive('registroszonas')" routerLink="registroszonas">Registros Zonas</a>
+        </li>
+        <li class="nav-item">
+            <a [ngClass]="linkActive('ingresosysalidas')" routerLink="ingresosysalidas">Ingresos y Salidas</a>
+        </li>
+    </ul>
+    <button  mat-icon-button class="btn-user" routerLink="login">
+        <mat-icon>login</mat-icon>
+    </button>
+    <button class="btn btn-outline-info rounded-circle float-right bg-success btn-user"
+        type="button" (click)="linkoutlogin()">
+        {{global.usuario.nombre.length > 0? global.usuario.nombre[0] : ''}}
+    </button>
+</div>

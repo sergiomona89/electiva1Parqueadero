@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Zonas } from '../models/zona.model';
-import { VariablesGlobalesService } from './variables-globales.service';
+import { VariablesGlobalesService } from '../variables-globales.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class ZonasService {
   private url: string;
 
   constructor(private _http: HttpClient, private global: VariablesGlobalesService) {
-    this.url = this.global.dominio + "";
+    this.url = this.global.dominioNodeJs + "";
   }
 
   public get() {
