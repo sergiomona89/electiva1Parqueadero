@@ -19,14 +19,14 @@ export class ZonasService {
   }
 
   public nuevaZona(zona: Zonas) {
-    return this._http.post<any>(this.url + "/zonas", zona);
+    return this._http.post<Zonas>(this.url + "/zonas", zona);
   }
 
   public modificarZona(zona: Zonas) {
-    return this._http.put<number>(this.url + "", zona);
+    return this._http.put<any>(this.url + "", zona);
   }
 
   public eliminarZona(id: number) {
-    return this._http.delete<number>(this.url + ""+id);
+    return this._http.delete<any>(this.url + ""+id);
   }
 }

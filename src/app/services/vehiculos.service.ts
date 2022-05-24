@@ -19,7 +19,7 @@ export class VehiculosService {
   }
 
   public nuevoVehiculo(vehiculo: Vehiculos) {
-    return this._http.post<number>(this.url + "/vehiculos", vehiculo);
+    return this._http.post<Vehiculos>(this.url + "/vehiculos", vehiculo);
   }
 
   public modificarVehiculo(vehiculo: Vehiculos) {

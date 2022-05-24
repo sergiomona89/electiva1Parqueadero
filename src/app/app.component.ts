@@ -13,8 +13,6 @@ export class AppComponent {
   constructor(public global: VariablesGlobalesService, private router: Router) {
     router.events.subscribe((val) => {
       // see also 
-      
-      console.log(val instanceof NavigationEnd);
 
       if(val instanceof NavigationEnd) {
         if(this.global.usuario?.id == 0 && val.url != '/' && val.url != '/registrosusuarios') {

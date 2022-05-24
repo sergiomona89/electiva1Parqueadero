@@ -6,8 +6,8 @@ import { Usuarios } from './models/usuarios';
 })
 export class VariablesGlobalesService {
 
-  public dominioNodeJs: string = 'http://localhost:3000'
-  public dominioNetCore = 'https://localhost:7071'
+  public dominioNodeJs: string = 'http://localhost:3000';
+  public dominioNetCore = 'https://localhost:44323';
   public usuario:Usuarios = new Usuarios();
 
   constructor() { }

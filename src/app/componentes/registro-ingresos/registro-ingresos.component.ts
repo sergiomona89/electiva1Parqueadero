@@ -23,6 +23,7 @@ export class RegistroIngresosComponent implements OnInit {
   public salida: boolean = false;
   public listVehiculoZona: Vehiculo_Zona[] = [];
   public listVehiculos: Vehiculos[] = [];
+  public cantidadZonas: number = 0;
 
   constructor(public variablesGlobales: GlobalController, private ingresosService: IngresosService, private vehiculosService: VehiculosService) {
     //this.vehiculosReg = this.variablesGlobales.vehiculosReg;
@@ -31,11 +32,13 @@ export class RegistroIngresosComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingresosService.getVehiculoZona().subscribe(list => {
-      this.listVehiculoZona = list
+      this.listVehiculoZona = list;
     });
     this.vehiculosService.get().subscribe(list => {
       this.listVehiculos = list;
     });
+
+    this.cantidadZonas = this.variablesGlobales.zonasReg.length;
   }
 
   cargarVehiculo(e: NgForm) {
@@ -66,11 +69,10 @@ export class RegistroIngresosComponent implements OnInit {
 
       //this.variablesGlobales.resgistros.push(this.vehiculo);
       
-      this.ingresosService.nuevoIngreso(this.vehiculo).subscribe(result => {
-        this.listVehiculoZona.push(this.vehiculo);
+      this.ingresosService.nuevoIngreso(this.vehiculo).subscribe(vehiculo => {
         this.variablesGlobales.zonasReg[idxz].disponibles --;
       });
-
+      this.listVehiculoZona.push(this.vehiculo);
       
     }
     else {
@@ -79,11 +81,10 @@ export class RegistroIngresosComponent implements OnInit {
         alert("El vehiculo no tiene un registro de ingreso.");
         return;
       }
-      
-      let idz = this.variablesGlobales.zonasReg.findIndex(item => item.numero == this.listVehiculoZona[idxR].zona);
-      this.variablesGlobales.zonasReg[idz].disponibles ++;
 
-      this.ingresosService.nuevaSalida(this.vehiculo).subscribe(result => {
+      this.ingresosService.nuevaSalida(this.vehiculo.placa).subscribe(result => {
+        let idz = this.variablesGlobales.zonasReg.findIndex(item => item.numero == this.listVehiculoZona[idxR].zona);
+        this.variablesGlobales.zonasReg[idz].disponibles ++;
         this.listVehiculoZona.splice(idxR, 1);
       });
       

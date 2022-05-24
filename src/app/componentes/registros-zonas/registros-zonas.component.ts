@@ -34,7 +34,6 @@ export class RegistrosZonasComponent implements OnInit {
     this.zona.disponibles = this.zona.cantidad;
     this.zonasService.nuevaZona(this.zona).subscribe(list => {
       this.listZonas.push(this.zona);
-      this.variablesGlobales.zonasReg = list;
       this.variablesGlobales.zonasReg.push(this.zona);
     });
     

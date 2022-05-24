@@ -11,18 +11,18 @@ export class IngresosService {
   private url: string;
 
   constructor(private _http: HttpClient, private global: VariablesGlobalesService) {
-    this.url = this.global.dominioNodeJs + "";
+    this.url = this.global.dominioNodeJs + "/v1";
   }
 
   public nuevoIngreso(vehiculo_zona: Vehiculo_Zona) {
-    return this._http.post<number>(this.url + "", vehiculo_zona);
+    return this._http.post<Vehiculo_Zona>(this.url + "/vehiculos_zonas", vehiculo_zona);
   }
 
-  public nuevaSalida(vehiculo_zona: Vehiculo_Zona) {
-    return this._http.put<number>(this.url + "", vehiculo_zona);
+  public nuevaSalida(placa: string) {
+    return this._http.delete<any>(this.url + "/vehiculos_zonas/"+placa);
   }
 
   public getVehiculoZona() {
-    return this._http.get<Vehiculo_Zona[]>(this.url + "");
+    return this._http.get<Vehiculo_Zona[]>(this.url + "/vehiculos_zonas");
   }
 }

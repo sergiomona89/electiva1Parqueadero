@@ -36,7 +36,7 @@ export class RegistroVehiculosComponent implements OnInit {
 
     this.vehiculo.placa = this.vehiculo.placa.toUpperCase();
     this.vehiculosService.nuevoVehiculo(this.vehiculo).subscribe(vehiculo => {
-      this.listVehiculos.push(this.vehiculo);
+      this.listVehiculos.push(vehiculo);
     });
     
     this.clear(e);
