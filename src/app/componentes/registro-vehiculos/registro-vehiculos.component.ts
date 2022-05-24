@@ -33,10 +33,12 @@ export class RegistroVehiculosComponent implements OnInit {
       alert("El vehiculo ya está registrado.");
       return;
     }
-    
+
     this.vehiculo.placa = this.vehiculo.placa.toUpperCase();
-    this.listVehiculos.push(this.vehiculo);
-    this.vehiculosService.nuevoVehiculo(this.vehiculo).subscribe(result => {});
+    this.vehiculosService.nuevoVehiculo(this.vehiculo).subscribe(vehiculo => {
+      this.listVehiculos.push(this.vehiculo);
+    });
+    
     this.clear(e);
     this.successFull = true;
   }

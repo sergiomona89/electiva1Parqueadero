@@ -21,6 +21,7 @@ export class RegistrosZonasComponent implements OnInit {
   ngOnInit(): void {
     this.zonasService.get().subscribe(list => {
       this.listZonas = list;
+      this.variablesGlobales.zonasReg = list;
     });
   }
 
@@ -31,7 +32,13 @@ export class RegistrosZonasComponent implements OnInit {
     }
 
     this.zona.disponibles = this.zona.cantidad;
-    this.variablesGlobales.zonasReg.push(this.zona);
+    this.zonasService.nuevaZona(this.zona).subscribe(list => {
+      this.listZonas.push(this.zona);
+      this.variablesGlobales.zonasReg = list;
+      this.variablesGlobales.zonasReg.push(this.zona);
+    });
+    
+    
 
     this.clear(e);
     this.successFull = true;

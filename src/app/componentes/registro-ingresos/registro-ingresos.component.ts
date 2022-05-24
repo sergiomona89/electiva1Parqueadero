@@ -68,9 +68,10 @@ export class RegistroIngresosComponent implements OnInit {
       
       this.ingresosService.nuevoIngreso(this.vehiculo).subscribe(result => {
         this.listVehiculoZona.push(this.vehiculo);
+        this.variablesGlobales.zonasReg[idxz].disponibles --;
       });
 
-      this.variablesGlobales.zonasReg[idxz].disponibles --;
+      
     }
     else {
       let idxR = this.listVehiculoZona.findIndex(item => item.placa.toUpperCase() == this.vehiculo.placa.toUpperCase());
