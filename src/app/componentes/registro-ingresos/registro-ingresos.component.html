@@ -18,7 +18,7 @@
     </div>
     <div class="form-group" *ngIf="!salida">
       <label>Zona</label>
-      <input type="number" class="form-control" name="Zona" placeholder="Zona" [(ngModel)]="vehiculo.zona" #zona="ngModel" required min="1" [max]="cantidadZonas">
+      <input type="number" class="form-control" name="Zona" placeholder="Zona" [(ngModel)]="vehiculo.zona" #zona="ngModel" required min="1" [max]="listZonas.length">
       <span *ngIf="zona.invalid && zona.touched">
         <div class="alert alert-danger" *ngIf="zona.errors?.['required']">
           Debe ingresar la zona.
@@ -58,7 +58,7 @@
           <th>Disponibles</th>
           <th>Tipo</th>
         </tr>
-        <tr *ngFor="let item of variablesGlobales.zonasReg">
+        <tr *ngFor="let item of listZonas">
           <td>{{item.numero}}</td>
           <td>{{item.cantidad}}</td>
           <td>{{item.disponibles}}</td>

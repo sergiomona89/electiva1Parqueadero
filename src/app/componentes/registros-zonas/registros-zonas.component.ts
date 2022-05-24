@@ -16,17 +16,16 @@ export class RegistrosZonasComponent implements OnInit {
   public auxTipoVehiculo = TipoVehiculo;
   public listZonas: Zonas[] = [];
 
-  constructor(public variablesGlobales: GlobalController, private zonasService: ZonasService) { }
+  constructor(private zonasService: ZonasService) { }
 
   ngOnInit(): void {
     this.zonasService.get().subscribe(list => {
       this.listZonas = list;
-      this.variablesGlobales.zonasReg = list;
     });
   }
 
   cargarZona(e: NgForm) {
-    if(this.variablesGlobales.zonasReg.some(item => item.numero == this.zona.numero)) {
+    if(this.listZonas.some(item => item.numero == this.zona.numero)) {
       alert("El numero de zona ya existe");
       return;
     }
@@ -34,7 +33,7 @@ export class RegistrosZonasComponent implements OnInit {
     this.zona.disponibles = this.zona.cantidad;
     this.zonasService.nuevaZona(this.zona).subscribe(list => {
       this.listZonas.push(this.zona);
-      this.variablesGlobales.zonasReg.push(this.zona);
+      this.listZonas.push(this.zona);
     });
     
     
